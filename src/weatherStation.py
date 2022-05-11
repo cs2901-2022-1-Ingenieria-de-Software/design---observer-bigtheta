@@ -1,6 +1,6 @@
 from publisher import Publisher
 
-class Weather_station(Publisher):
+class WeatherStation(Publisher):
 	def __init__(self):
 		super().__init__()
 		self.temperature = 0

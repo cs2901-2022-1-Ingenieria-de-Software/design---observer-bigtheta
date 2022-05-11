@@ -1,11 +1,11 @@
-from weatherStation import Weather_station
+from weatherStation import WeatherStation
 from displayDevice import Forecast
 from displayDevice import Statistics
 from displayDevice import CurrentConditions
 
 
 if __name__ == "__main__":
-	ws = Weather_station()
+	ws = WeatherStation()
 	f = Forecast()
 	s = Statistics()
 	cc = CurrentConditions()

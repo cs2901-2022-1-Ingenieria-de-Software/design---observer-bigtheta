@@ -12,16 +12,16 @@ class Forecast(Observer):
 		self.future_pressure = pressure
 		print("Forecast: updated")
 
-class Current_conditions(Observer):
+class CurrentConditions(Observer):
 	def __init__(self):
 		self.current_temperature = 0
 		self.current_humidity = 0
 		self.current_pressure = 0
 
 	def update(self ,temperature, humidity, pressure):
-		current_temperature = temperature
-		current_humidity = humidity
-		current_pressure = pressure
+		self.current_temperature = temperature
+		self.current_humidity = humidity
+		self.current_pressure = pressure
 		print("Current_conditions: updated")
 
 class Statistics(Observer):
@@ -31,7 +31,7 @@ class Statistics(Observer):
 		self.past_pressure = 0
 
 	def update(self ,temperature, humidity, pressure):
-		past_temperature = temperature
-		past_humidity = humidity
-		past_pressure = pressure
+		self.past_temperature = temperature
+		self.past_humidity = humidity
+		self.past_pressure = pressure
 		print("Statistics: updated")

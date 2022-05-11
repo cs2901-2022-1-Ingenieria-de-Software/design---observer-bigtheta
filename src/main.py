@@ -1,14 +1,14 @@
 from weatherStation import Weather_station
 from displayDevice import Forecast
 from displayDevice import Statistics
-from displayDevice import Current_conditions
+from displayDevice import CurrentConditions
 
 
 if __name__ == "__main__":
 	ws = Weather_station()
 	f = Forecast()
 	s = Statistics()
-	cc = Current_conditions()
+	cc = CurrentConditions()
 	ws.subscribe(f)
 	ws.subscribe(s)
 	ws.subscribe(cc)

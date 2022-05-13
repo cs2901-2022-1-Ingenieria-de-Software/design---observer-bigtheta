@@ -1,32 +1,30 @@
 from observer import Observer
 from sklearn.linear_model import LinearRegression
-from numpy import reshape
+from numpy import reshape,array,append
 
 
 class Forecast(Observer):
 	def __init__(self):
-		self.past_temperature = []
-		self.past_humidity = []
-		self.past_pressure = []
-		self.xs = []
+		self.past_temperature = array([])
+		self.past_humidity  = array([])
+		self.past_pressure  = array([])
+		self.xs  = array([])
 		
 	def update(self ,temperature, humidity, pressure):
-		self.past_temperature.append(temperature)
-		self.past_humidity.append(humidity)
-		self.past_pressure.append(pressure)
-		self.xs.append(len(self.xs))
-		print("Forecast: updated future values", "self.get_future()") 
+		self.past_temperature =append(self.past_temperature,temperature)
+		self.past_humidity =append(self.past_humidity,humidity)
+		self.past_pressure =append(self.past_pressure,pressure)
+		self.xs=append(self.xs,len(self.xs))
+		print("Forecast: updated future values", self.get_future()) 
 
-	"""
 	def get_future(self):
 		ft = LinearRegression()
-		ft.fit(reshape(self.xs,(-1,1)), reshape(self.past_temperature,(-1,1)))
+		ft.fit(reshape(self.xs,newshape=(-1,1)), reshape(self.past_temperature,newshape=(-1,1)))
 		fh = LinearRegression()
-		ft.fit(reshape(self.xs,(-1,1)), reshape(self.past_humidity),(-1,1))
+		ft.fit(reshape(self.xs,newshape=(-1,1)), reshape(self.past_humidity,newshape=(-1,1)))
 		fp = LinearRegression()
-		ft.fit(reshape(self.xs,(-1,1)), reshape(self.past_pressure),(-1,1))
+		ft.fit(reshape(self.xs,newshape=(-1,1)), reshape(self.past_pressure,newshape=(-1,1)))
 		return(ft.predict(len(self.xs)), fh.predict(len(self.xs)), fp.predict(len(self.xs)))
-	"""
 
 class CurrentConditions(Observer):
 	def __init__(self):
